@@ -13,6 +13,7 @@ route_stops = {
     6: ["a", "b", "c", "d", "e"],  # Route 6 stops
 }
 
+
 # Update tram locations dynamically every 5 seconds based on the POST request by tram
 @app.route('/get_info', methods=['POST'])
 def update_tram_info():
@@ -32,8 +33,9 @@ def update_tram_info():
     else:
         return jsonify({"status": "error", "message": "Invalid data"}), 400
 
+
 # Get all tram info at a specific stop
-@app.route('/tram_info/<stop>', methods=['POST'])
+@app.route('/tram_info/<stop>', methods=['GET'])
 def get_trams_by_stop(stop):
     relevant_trams = []
     for tram_id, tram in trams.items():
@@ -50,6 +52,7 @@ def get_trams_by_stop(stop):
 
     return jsonify(relevant_trams)
 
+
 # Function to calculate the distance (in number of stops) between the tram and the requested stop
 def calculate_stop_distance(route_stops, current_stop, target_stop):
     current_index = route_stops.index(current_stop)
@@ -57,10 +60,12 @@ def calculate_stop_distance(route_stops, current_stop, target_stop):
     distance = (target_index - current_index) % len(route_stops)
     return distance
 
+
 # Endpoint to get all the tram data (for debugging or management)
 @app.route('/all_trams', methods=['GET'])
 def get_all_trams():
     return jsonify(trams), 200
 
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
