@@ -14,7 +14,12 @@ def get_stop(stop):
         tram_info = response.json()
         print(f"Trams stopping at {stop}:")
         for tram in tram_info:
-            print(f"Tram ID: {tram['tram_id']}, Route: {tram['route']}, Distance: {tram['distance_to_stop']} stops away")
+            print(f"Tram ID: {tram['tram_id']}, Route: {tram['route']}, "
+                  f"Fare: ${tram['fare']}")
+            if tram.get("points_of_interest"):
+                print("Points of Interest along the route:")
+                for poi in tram["points_of_interest"]:
+                    print(f" - {poi}")
     else:
         print(f"Failed to retrieve tram info: {response.status_code}")
 
