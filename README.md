@@ -1,5 +1,5 @@
 # Tram Tracker
-Tram Tracker is a RESTful API project by Arief Wibiwo and Kevin Smith for our
+Tram Tracker is a RESTful API project by Arief Wibowo and Kevin Smith for our
 Communication Networks ELEN90061 Final Project.
 
 ## About our Project
