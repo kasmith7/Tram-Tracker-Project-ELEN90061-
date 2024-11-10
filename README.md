@@ -9,7 +9,7 @@ passengers, through 2 different APIs.
 The current scope of the project includes a HTTP server which contains the information for 2 tram lines,
 4 unique trams, and an API for client apps.
 
-Client.py allows for the direct requesting of tram data from the server.
+Client.py allows for the direct requesting of tram stop data from the server.
 
 
 We designed it this way to take advantage of the flexibility and reusability offered by RESTful APIs and keep 
